@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block content %}
+{% if error %}
+<div class="alert alert-error">{{error}}</div>
+{% endif %}
+<h1>Создание задачи</h1>
+<form method="post">
+    {% csrf_token %}
+    {{form.title}}<br>
+    {{form.text}}<br>
+    <button type="submit" class="btn btn-success">Создать</button>
+</form>
+{% endblock %}
